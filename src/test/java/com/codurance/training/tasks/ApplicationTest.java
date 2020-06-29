@@ -7,12 +7,15 @@ import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.io.PrintWriter;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.Date;
 
 import static java.lang.System.lineSeparator;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertFalse;
 
 public final class ApplicationTest {
     public static final String PROMPT = "> ";
@@ -30,7 +33,7 @@ public final class ApplicationTest {
         TaskList taskList = new TaskList(in, out);
         applicationThread = new Thread(taskList);
     }
-
+    /*
     @Before public void
     start_the_application() {
         applicationThread.start();
@@ -123,5 +126,12 @@ public final class ApplicationTest {
 
     private boolean stillRunning() {
         return applicationThread != null && applicationThread.isAlive();
+    }*/
+    @Test
+    public void testTask() {
+        Date date = new Date("29/06/2020");
+        Task tass = new Task(1, "task_description", false , date );
+        Assert.assertNotNull("L'instance n'est pas créée", tass);
     }
+
 }
