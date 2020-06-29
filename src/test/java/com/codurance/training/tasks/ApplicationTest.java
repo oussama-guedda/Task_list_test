@@ -33,7 +33,7 @@ public final class ApplicationTest {
         TaskList taskList = new TaskList(in, out);
         applicationThread = new Thread(taskList);
     }
-
+    
     @Before public void
     start_the_application() {
         applicationThread.start();
@@ -133,5 +133,24 @@ public final class ApplicationTest {
         Task tass = new Task(1, "task_description", false , date );
         Assert.assertNotNull("L'instance n'est pas créée", tass);
     }
+
+    @Test
+    public void testGetDate() {
+        Date date1 = new Date("29/06/2020");
+        Date date2 = new Date("29/06/2020");
+        Task tass = new Task(1, "task_description", false , date1 );
+        Assert.assertEquals("La date est incorrecte", date2, tass.getDate());
+    }
+
+    @Test
+    public void testSetDate() {
+        Date date1 = new Date("29/06/2020");
+        Date date2 = new Date("05/08/2021");
+        Task tass = new Task(1, "task_description", false , date1 );
+        tass.setDate(date2);
+        Assert.assertEquals("Le nom est incorrect", date2, tass.getDate());
+
+    }
+
 
 }
