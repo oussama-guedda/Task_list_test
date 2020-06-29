@@ -33,7 +33,7 @@ public final class ApplicationTest {
         TaskList taskList = new TaskList(in, out);
         applicationThread = new Thread(taskList);
     }
-    /*
+
     @Before public void
     start_the_application() {
         applicationThread.start();
@@ -126,7 +126,7 @@ public final class ApplicationTest {
 
     private boolean stillRunning() {
         return applicationThread != null && applicationThread.isAlive();
-    }*/
+    }
     @Test
     public void testTask() {
         Date date = new Date("29/06/2020");
